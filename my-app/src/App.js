@@ -1,22 +1,38 @@
 import './App.css';
-import React, { useCallback, useState } from 'react';
-import ChildA from './ChildA';
+import React, { useState } from 'react';
 
 function App() {
-  const [add,setAdd] = useState(0);
-const [count,setCount] = useState(0);
-  const Learning = useCallback(()=>{
-    //some operation
-  },[]);
+    const [name,setName] = useState("");
+    const [password,setPassword] = useState("");
+   function handleChange(e){
+    // console.log(e.target.value);
+    //  setName(e.target.value);
+    // const capitalName = (e.target.value).toUpperCase();
+    //  setName(capitalName);
+
+    if(e.target.name == "firstName"){
+      // console.log(e.target.name);  
+      
+      const capitalName = (e.target.value).toUpperCase();
+      setName(capitalName);
+    }
+    else{
+      setPassword(e.target.value)
+    }
+
+   }
    return(
-    <div className='App'>
-      <h1>Learning useCallback</h1>
-      <h1>{add}</h1>
-      <button  onClick={()=>{setAdd(add + 1)}}>Addition</button>
-      <h1>{count}</h1>
-      <button  onClick={()=>{setCount(count + 2)}}>Count</button>
-    </div>
-   ) ;  
+     <>
+     <form className='App'>
+     <h1>HTML FORMS</h1>
+      <label>First Name :</label><br/>
+      <input type='text' name='firstName' value={name} onChange={handleChange}/> <br/> <br/>
+      <label>Password :</label> <br/>
+      <input type='text' name='password' value={password} onChange={handleChange}/> <br/> <br/>
+      <button>Submit</button>
+     </form>
+     </>
+   )   
   } 
 
 export default App;
