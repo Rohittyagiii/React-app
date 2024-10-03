@@ -44,7 +44,7 @@ function Form(){
             <button>Submit</button>
           </div>
         </form>
-        </>
+    </>
     )
 } 
 export default Form;
